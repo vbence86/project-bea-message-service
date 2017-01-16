@@ -4,6 +4,7 @@ const nodemailer = require('nodemailer');
 const smtpConfig = require('./smtp.config.json');
 const app = express();
 const port = 8095;
+const targetEmail = 'nuevasventurasinfo@gmail.com';
 
 function validation(err, req, res, next) {
   if (!req.body) res.status(500).send('Something broke!');
@@ -28,7 +29,7 @@ function sendEmail(data) {
   const transporter = nodemailer.createTransport(`smtps://${account}%40gmail.com:${password}@smtp.gmail.com`);
   const mailOptions = {
       from: '"Nuevasventuras.es" <info@nuevasventuras.es>',
-      to: data.email,
+      to: targetEmail,
       subject: `Request from ${data.name}`,
       html: renderEmailBody(data)
   };
