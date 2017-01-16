@@ -28,11 +28,11 @@ function sendEmail(data) {
   const transporter = nodemailer.createTransport(`smtps://${account}%40gmail.com:${password}@smtp.gmail.com`);
   const mailOptions = {
       from: '"Nuevasventuras.es" <info@nuevasventuras.es>',
-      to: `${data.email}`,
+      to: data.email,
       subject: `Request from ${data.name}`,
       html: renderEmailBody(data)
   };
-    
+
   return new Promise((resolve, reject) => {
     transporter.sendMail(mailOptions, function(error, info){
         if(error){
