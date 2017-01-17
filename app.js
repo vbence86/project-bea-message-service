@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer');
 const smtpConfig = require('./smtp.config.json');
 const app = express();
 const port = 8095;
-const targetEmail = 'nuevasventurasinfo@gmail.com';
+const targetEmail = 'nuevasaventurasinfo@gmail.com';
 
 function validation(err, req, res, next) {
   if (!req.body) res.status(500).send('Something broke!');
